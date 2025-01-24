@@ -26,5 +26,6 @@ public class GameMinDTO {
 
     public GameMinDTO(GameMinProjection gameMinProjection) {
         BeanUtils.copyProperties(gameMinProjection, this);
+        this.year = gameMinProjection.getGameYear();
     }
 }
