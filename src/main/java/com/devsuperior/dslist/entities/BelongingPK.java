@@ -1,11 +1,7 @@
 package com.devsuperior.dslist.entities;
-
-import org.hibernate.annotations.ManyToAny;
-
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
