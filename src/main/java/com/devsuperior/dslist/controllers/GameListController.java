@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.devsuperior.dslist.dto.GameListDTO;
 import com.devsuperior.dslist.dto.GameMinDTO;
+import com.devsuperior.dslist.dto.ReplacementDTO;
 import com.devsuperior.dslist.services.GameListService;
 import com.devsuperior.dslist.services.GameService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @RequestMapping(value="/lists")
@@ -31,5 +35,12 @@ public class GameListController {
     public List<GameMinDTO> findByList(@PathVariable Long listId) {
         return this.gameService.findByList(listId);
     }
+
+    @PostMapping(value = "/{listId}/replacement")
+    public void move(@PathVariable Long listId, @RequestBody ReplacementDTO replacementDTO) {
+        System.out.println(listId + "-" + replacementDTO.getSourceIndex() + " -"+replacementDTO.getDestinationIndex());
+        this.gameListService.move(listId, replacementDTO.getSourceIndex(), replacementDTO.getDestinationIndex());
+    }
+    
 
 }
